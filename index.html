@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alan Seemon — Economist & Policy Advisor</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #0E1A12;
+  --forest: #1A3325;
+  --moss: #2E5C42;
+  --sage: #4A8A65;
+  --mint: #A8D5B5;
+  --cream: #F7F4EE;
+  --parchment: #EDE8DF;
+  --gold: #B89A4E;
+  --gold-light: #D4B870;
+  --mid: #6B7A6E;
+  --border: rgba(46,92,66,0.15);
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 6vw; height: 60px;
+  background: rgba(14,26,18,0.97);
+  border-bottom: 1px solid rgba(168,213,181,0.12);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; font-weight: 600;
+  color: var(--mint); letter-spacing: 0.04em;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a {
+  font-size: 12px; font-weight: 400;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(247,244,238,0.55); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--mint); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: var(--forest);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 120px 6vw 80px;
+  position: relative; overflow: hidden;
+}
+.hero-bg-text {
+  position: absolute; top: 50%; left: 6vw;
+  transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(120px, 18vw, 220px);
+  font-weight: 700;
+  color: rgba(168,213,181,0.04);
+  line-height: 1; pointer-events: none;
+  white-space: nowrap; letter-spacing: -0.02em;
+}
+.hero-tag {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--sage); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-tag::before { content: ''; display: block; width: 28px; height: 1px; background: var(--sage); }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 6.5vw, 88px);
+  font-weight: 700; color: var(--cream);
+  line-height: 1.05; letter-spacing: -0.01em;
+  max-width: 780px; margin-bottom: 8px;
+}
+.hero h1 em { font-style: italic; color: var(--mint); }
+.hero-subtitle {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: rgba(247,244,238,0.5);
+  font-weight: 300; letter-spacing: 0.02em;
+  margin-bottom: 32px;
+}
+.hero-desc {
+  max-width: 480px; font-size: 15px;
+  color: rgba(247,244,238,0.55); line-height: 1.85;
+  margin-bottom: 44px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
+.btn-primary {
+  padding: 12px 26px; background: var(--sage);
+  color: white; font-size: 13px; font-weight: 500;
+  letter-spacing: 0.06em; border: none; cursor: pointer;
+  text-decoration: none; display: inline-block;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--moss); }
+.btn-outline {
+  padding: 11px 26px; background: transparent;
+  color: rgba(247,244,238,0.7); font-size: 13px;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(247,244,238,0.2);
+  text-decoration: none; display: inline-block;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: var(--mint); color: var(--mint); }
+.hero-pills {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  border-top: 1px solid rgba(168,213,181,0.1);
+  padding-top: 28px;
+}
+.hero-pill {
+  padding: 6px 14px;
+  border: 1px solid rgba(168,213,181,0.2);
+  font-size: 11px; font-weight: 400;
+  color: rgba(247,244,238,0.45);
+  letter-spacing: 0.08em;
+}
+
+/* SECTION BASE */
+section { padding: 96px 6vw; }
+.section-eyebrow {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--sage); display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px;
+}
+.section-eyebrow::before { content: ''; display: block; width: 22px; height: 1px; background: var(--sage); }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3.2vw, 40px); font-weight: 700;
+  color: var(--forest); line-height: 1.15;
+  max-width: 520px; margin-bottom: 52px;
+}
+
+/* ABOUT */
+#about { background: white; }
+.about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start; }
+.about-body p { color: var(--mid); line-height: 1.95; margin-bottom: 18px; font-size: 15px; }
+.about-body p strong { color: var(--forest); font-weight: 500; }
+.skills-wrap { margin-top: 36px; }
+.skills-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 14px; }
+.skills-grid { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill-tag {
+  padding: 5px 13px; border: 1px solid var(--border);
+  font-size: 12px; font-weight: 400; color: var(--forest);
+  background: var(--cream);
+}
+.aside-panel { border-left: 1px solid var(--border); padding-left: 44px; }
+.aside-section { margin-bottom: 40px; }
+.aside-heading { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 20px; }
+.exp-item { margin-bottom: 26px; padding-bottom: 26px; border-bottom: 1px solid var(--border); }
+.exp-item:last-child { border-bottom: none; margin-bottom: 0; }
+.exp-period { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px; }
+.exp-title { font-size: 14px; font-weight: 500; color: var(--forest); margin-bottom: 2px; }
+.exp-org { font-size: 13px; color: var(--mid); }
+.exp-loc { font-size: 12px; color: rgba(107,122,110,0.65); }
+.cert-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.cert-list li { font-size: 13px; color: var(--mid); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+.cert-list li::before { content: '—'; color: var(--sage); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
+
+/* EXPERIENCE */
+#experience { background: var(--parchment); }
+.exp-timeline { display: flex; flex-direction: column; gap: 0; }
+.timeline-item {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 40px; padding: 44px 0;
+  border-bottom: 1px solid var(--border);
+}
+.timeline-item:first-child { border-top: 1px solid var(--border); }
+.t-meta { padding-top: 4px; }
+.t-period { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: var(--gold); margin-bottom: 6px; }
+.t-org { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--forest); margin-bottom: 3px; }
+.t-loc { font-size: 12px; color: var(--mid); }
+.t-role { font-size: 15px; font-weight: 500; color: var(--forest); margin-bottom: 14px; }
+.t-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.t-bullets li { font-size: 14px; color: var(--mid); padding-left: 18px; position: relative; line-height: 1.65; }
+.t-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--sage); font-size: 11px; top: 3px; }
+
+/* PUBLICATIONS */
+#publications { background: white; }
+.pub-list { display: flex; flex-direction: column; gap: 0; }
+.pub-item {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 26px 0; border-bottom: 1px solid var(--border);
+  transition: padding-left 0.2s; cursor: default;
+}
+.pub-item:first-child { border-top: 1px solid var(--border); }
+.pub-item:hover { padding-left: 10px; }
+.pub-year { font-size: 12px; color: var(--gold); font-weight: 500; letter-spacing: 0.06em; margin-bottom: 6px; }
+.pub-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--forest); margin-bottom: 4px; line-height: 1.3; max-width: 560px; }
+.pub-source { font-size: 13px; color: var(--mid); font-style: italic; }
+.pub-badge {
+  padding: 4px 11px; border: 1px solid var(--border);
+  font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+  color: var(--sage); flex-shrink: 0; margin-left: 24px; white-space: nowrap;
+  height: fit-content; margin-top: 4px;
+}
+
+/* SPEAKING */
+#speaking { background: var(--forest); }
+#speaking .section-title { color: var(--cream); }
+.speaking-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: rgba(168,213,181,0.08); }
+.speaking-card {
+  background: var(--forest); padding: 32px 28px;
+  border: 1px solid rgba(168,213,181,0.08);
+  transition: background 0.2s;
+}
+.speaking-card:hover { background: var(--moss); }
+.spk-icon { font-size: 18px; margin-bottom: 16px; color: var(--sage); }
+.spk-venue { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.spk-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--cream); line-height: 1.3; }
+
+/* ACHIEVEMENTS */
+#achievements { background: var(--parchment); }
+.ach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.ach-card {
+  background: white; padding: 28px 24px;
+  border: 1px solid var(--border);
+}
+.ach-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700; color: rgba(74,138,101,0.15); line-height: 1; margin-bottom: 14px; }
+.ach-text { font-size: 14px; color: var(--mid); line-height: 1.65; }
+.ach-text strong { color: var(--forest); font-weight: 500; }
+
+/* CONTACT */
+#contact { background: var(--ink); }
+#contact .section-title { color: var(--cream); max-width: 600px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.contact-desc { font-size: 15px; color: rgba(247,244,238,0.5); line-height: 1.9; margin-bottom: 40px; }
+.contact-links { display: flex; flex-direction: column; gap: 0; }
+.contact-link {
+  display: flex; align-items: center; gap: 16px;
+  font-size: 14px; color: rgba(247,244,238,0.55);
+  text-decoration: none;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(168,213,181,0.08);
+  transition: color 0.2s;
+}
+.contact-link:hover { color: var(--mint); }
+.c-icon {
+  width: 34px; height: 34px; flex-shrink: 0;
+  border: 1px solid rgba(168,213,181,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+}
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fg { display: flex; flex-direction: column; gap: 6px; }
+.fg label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,244,238,0.3); }
+.fg input, .fg textarea {
+  background: rgba(247,244,238,0.05);
+  border: 1px solid rgba(168,213,181,0.15);
+  color: var(--cream); padding: 11px 15px;
+  font-size: 14px; font-family: 'Outfit', sans-serif;
+  outline: none; resize: none;
+  transition: border-color 0.2s;
+}
+.fg input:focus, .fg textarea:focus { border-color: var(--sage); }
+.fg input::placeholder, .fg textarea::placeholder { color: rgba(247,244,238,0.2); }
+
+/* FOOTER */
+footer {
+  background: #060F09; padding: 20px 6vw;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy { font-size: 12px; color: rgba(247,244,238,0.25); }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: rgba(168,213,181,0.35); font-weight: 600; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-tag, .hero h1, .hero-subtitle, .hero-desc, .hero-actions, .hero-pills {
+  animation: fadeUp 0.7s ease both;
+}
+.hero-tag { animation-delay: 0.1s; }
+.hero h1 { animation-delay: 0.22s; }
+.hero-subtitle { animation-delay: 0.3s; }
+.hero-desc { animation-delay: 0.38s; }
+.hero-actions { animation-delay: 0.46s; }
+.hero-pills { animation-delay: 0.54s; }
+
+@media (max-width: 760px) {
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .aside-panel { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 32px; }
+  .nav-links { display: none; }
+  .timeline-item { grid-template-columns: 1fr; gap: 16px; }
+  .form-row { grid-template-columns: 1fr; }
+  .pub-badge { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Alan Seemon</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#speaking">Speaking</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg-text">Economist</div>
+  <p class="hero-tag">Green Economy · Policy · Finance</p>
+  <h1>Alan <em>Seemon</em></h1>
+  <p class="hero-subtitle">Economist | Energy Transition | Sustainable Finance | Thought Leadership</p>
+  <p class="hero-desc">Macroeconomic and public policy specialist advising multilaterals, governments, and industry on green transition, energy, and economic analysis. Currently at the UN Environment Programme, Delhi.</p>
+  <div class="hero-actions">
+    <a href="#experience" class="btn-primary">View my work</a>
+    <a href="#contact" class="btn-outline">Get in touch</a>
+  </div>
+  <div class="hero-pills">
+    <span class="hero-pill">UN Environment Programme</span>
+    <span class="hero-pill">Ernst &amp; Young</span>
+    <span class="hero-pill">Reserve Bank of India</span>
+    <span class="hero-pill">FT Energy Transition Summit 2024</span>
+    <span class="hero-pill">University of Warwick</span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-eyebrow">About me</div>
+  <div class="about-grid">
+    <div class="about-body">
+      <h2 class="section-title">Bridging economics, policy, and sustainability</h2>
+      <p>I am an applied economist with a track record in <strong>macroeconomic analysis, green transition policy, and sustainable finance</strong>. My work spans advisory to multilateral institutions, governments, and major conglomerates — from the UN and World Bank Group to Reliance, Adani, and the UK and Japanese governments.</p>
+      <p>At EY, I co-authored <strong>India's Journey to Net Zero</strong>, recognised at the Financial Times Energy Transition Summit 2024. I now lead macroeconomic and policy analysis for India's green economy strategy at the <strong>UN Environment Programme</strong>, coordinating with NITI Aayog, multiple ministries, and international development partners.</p>
+      <p>Beyond advisory, I co-founded <strong>Economiga</strong> — a 4,000+ member pan-India economics community — and organised India's first Monsoon School in Economics. I'm a top 6% scorer in the UGC National Eligibility Test and a frequent speaker at policy forums.</p>
+      <div class="skills-wrap">
+        <div class="skills-label">Technical skills</div>
+        <div class="skills-grid">
+          <span class="skill-tag">Macroeconomic Analysis</span>
+          <span class="skill-tag">Policy Advisory</span>
+          <span class="skill-tag">Green Finance</span>
+          <span class="skill-tag">Econometrics</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">R</span>
+          <span class="skill-tag">EViews</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">LaTeX</span>
+          <span class="skill-tag">MS Excel (Advanced)</span>
+          <span class="skill-tag">SPSS</span>
+          <span class="skill-tag">Carbon Pricing</span>
+          <span class="skill-tag">CBAM</span>
+          <span class="skill-tag">Just Transition</span>
+        </div>
+      </div>
+    </div>
+    <div class="aside-panel">
+      <div class="aside-section">
+        <div class="aside-heading">Education</div>
+        <div class="exp-item">
+          <div class="exp-period">Mar – Apr 2025</div>
+          <div class="exp-title">Sustainability Training Academy</div>
+          <div class="exp-org">University of Warwick</div>
+          <div class="exp-loc">Venice, Italy</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-period">2020 – 2022</div>
+          <div class="exp-title">M.A. Financial Economics — 7.17 CGPA</div>
+          <div class="exp-org">Madras School of Economics</div>
+          <div class="exp-loc">Chennai, Tamil Nadu</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-period">2017 – 2020</div>
+          <div class="exp-title">B.A. Economics — 8.19 CGPA</div>
+          <div class="exp-org">Mahatma Gandhi University</div>
+          <div class="exp-loc">Kottayam, Kerala</div>
+        </div>
+      </div>
+      <div class="aside-section">
+        <div class="aside-heading">Certifications</div>
+        <ul class="cert-list">
+          <li>Macroeconomic Diagnostics (IMF)</li>
+          <li>Sustainable Finance (UNITAR)</li>
+          <li>Python &amp; Statistics for Financial Analysis</li>
+          <li>Data Sciences for Financial Services (NSE)</li>
+          <li>Financial Modeling in Spreadsheets (DataCamp)</li>
+          <li>Blockchain Technology &amp; Cryptocurrency (IIITMK)</li>
+          <li>Technical Analysis (Zerodha)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-eyebrow">Experience</div>
+  <h2 class="section-title">Where I've worked</h2>
+  <div class="exp-timeline">
+
+    <div class="timeline-item">
+      <div class="t-meta">
+        <div class="t-period">July 2025 – Ongoing</div>
+        <div class="t-org">UN Environment Programme</div>
+        <div class="t-loc">Delhi, India</div>
+      </div>
+      <div>
+        <div class="t-role">Green Economy Consultant</div>
+        <ul class="t-bullets">
+          <li>Conducted macroeconomic and policy analysis for green economic growth in India and prepared the national sustainability strategy under the UN PAGE programme.</li>
+          <li>Coordinated multi-stakeholder engagement across government ministries, UN agencies, and donors — liaising with MoEFCC, Ministry of Textiles, Ministry of Finance, and NITI Aayog.</li>
+          <li>Developed technical inputs on sustainable public procurement, circular economy, green jobs, and sectoral just transitions.</li>
+          <li>Organised a high-level policy dialogue with the Ministry of Textiles bringing together government, multilateral partners, industry, and civil society.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="t-meta">
+        <div class="t-period">Jan 2023 – July 2025</div>
+        <div class="t-org">Ernst &amp; Young</div>
+        <div class="t-loc">Delhi, India</div>
+      </div>
+      <div>
+        <div class="t-role">Consultant — Climate &amp; Economic Policy</div>
+        <ul class="t-bullets">
+          <li>Co-authored <em>Energy Transition: India's Journey to Net Zero</em>, recognised at the Financial Times Energy Transition Summit 2024.</li>
+          <li>Provided macroeconomic analysis and policy advisory to Reliance, Adani, L&T, UK Government, Japanese Government, CII, FICCI, World Bank Group, and ADB.</li>
+          <li>Analysed bilateral trade between India and the EU to unravel insights on the impact of CBAM on Indian exports.</li>
+          <li>Conducted in-depth review of India's policy landscape to guide Japanese companies' investment planning.</li>
+          <li>Co-authored the quarterly flagship publication <em>India Economic Pulse</em>, covering inflation, monetary policy, energy markets, and high-frequency indicators.</li>
+          <li>Contributed to a national CCUS policy framework through a comprehensive value chain assessment for hard-to-abate sectors — well received by the Ministry of Petroleum &amp; Natural Gas.</li>
+          <li>Conducted analysis of India-UK bilateral trade ties feeding into ministerial discussions for the India-UK FTA.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="t-meta">
+        <div class="t-period">July – Dec 2022</div>
+        <div class="t-org">Ipsos MMA</div>
+        <div class="t-loc">Bangalore, India</div>
+      </div>
+      <div>
+        <div class="t-role">Analyst</div>
+        <ul class="t-bullets">
+          <li>Developed Multi-Touch Attribution Models to analyse customer spending and journey — estimating the role of each touchpoint in driving conversions and optimising marketing spend.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="t-meta">
+        <div class="t-period">Apr – July 2021</div>
+        <div class="t-org">Reserve Bank of India</div>
+        <div class="t-loc">Chennai, India</div>
+      </div>
+      <div>
+        <div class="t-role">Intern — Department of Supervision</div>
+        <ul class="t-bullets">
+          <li>Presented a research report comparing interest rate transmission under the Repo Linked Lending Rate regime versus the Marginal Cost based Lending Rate regime using econometric techniques.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="t-meta">
+        <div class="t-period">Ongoing</div>
+        <div class="t-org">Economiga</div>
+        <div class="t-loc">Kerala, India</div>
+      </div>
+      <div>
+        <div class="t-role">Co-Founder</div>
+        <ul class="t-bullets">
+          <li>Co-founded a 4,000+ member pan-India community of economics students and practitioners to bridge knowledge asymmetries and promote economic literacy.</li>
+          <li>Spearheaded a 30+ member core team leading initiatives through podcasts, articles, webinars, and curated multimedia content.</li>
+          <li>Co-organised India's first Monsoon School in Economics, bringing together central bank economists, policy experts, and academicians.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="publications">
+  <div class="section-eyebrow">Writing &amp; Research</div>
+  <h2 class="section-title">Selected publications</h2>
+  <div class="pub-list">
+    <div class="pub-item">
+      <div>
+        <div class="pub-year">2024</div>
+        <div class="pub-title">Redefining GDP: Integrating Carbon Pricing in National Income Accounting</div>
+        <div class="pub-source">Reflection</div>
+      </div>
+      <span class="pub-badge">Research</span>
+    </div>
+    <div class="pub-item">
+      <div>
+        <div class="pub-year">2024</div>
+        <div class="pub-title">Energy Transition: India's Journey to Net Zero</div>
+        <div class="pub-source">Ernst &amp; Young — Featured at FT Energy Transition Summit 2024</div>
+      </div>
+      <span class="pub-badge">Report</span>
+    </div>
+    <div class="pub-item">
+      <div>
+        <div class="pub-year">2024</div>
+        <div class="pub-title">India Economic Pulse (Quarterly)</div>
+        <div class="pub-source">Ernst &amp; Young</div>
+      </div>
+      <span class="pub-badge">Flagship</span>
+    </div>
+    <div class="pub-item">
+      <div>
+        <div class="pub-year">2024</div>
+        <div class="pub-title">Role of CCUS in India's Energy Sector</div>
+        <div class="pub-source">Client Confidential</div>
+      </div>
+      <span class="pub-badge">Policy</span>
+    </div>
+    <div class="pub-item">
+      <div>
+        <div class="pub-year">2023</div>
+        <div class="pub-title">Unlocking the Power of India's Demographic Dividend</div>
+        <div class="pub-source">Financial Express — co-authored with R. Gupta</div>
+      </div>
+      <span class="pub-badge">Op-Ed</span>
+    </div>
+    <div class="pub-item">
+      <div>
+        <div class="pub-year">2022</div>
+        <div class="pub-title">Nudging Towards Better Health</div>
+        <div class="pub-source">Athena 2021, Madras School of Economics</div>
+      </div>
+      <span class="pub-badge">Paper</span>
+    </div>
+    <div class="pub-item">
+      <div>
+        <div class="pub-year">2020</div>
+        <div class="pub-title">Demonetization: One Step Forward, Three Steps Back</div>
+        <div class="pub-source">Southern Economist — co-authored with N.S. Nair</div>
+      </div>
+      <span class="pub-badge">Paper</span>
+    </div>
+  </div>
+</section>
+
+<section id="speaking">
+  <div class="section-eyebrow">Speaking &amp; Leadership</div>
+  <h2 class="section-title">Events &amp; engagements</h2>
+  <div class="speaking-grid">
+    <div class="speaking-card">
+      <div class="spk-icon">◆</div>
+      <div class="spk-venue">University of Warwick · Venice 2025</div>
+      <div class="spk-title">Selected as one of 21 early-career researchers globally for the Sustainability Training Academy — sole Indian, only non-PhD participant. Our group project on tackling food waste in Venice (with Elizabeth Smith &amp; Dierdre Carolan), with potential to replicate and scale to other regions, has been selected for potential seed funding!</div>
+    </div>
+    <div class="speaking-card">
+      <div class="spk-icon">◆</div>
+      <div class="spk-venue">IIFT New Delhi · 2024</div>
+      <div class="spk-title">Invited panelist — Union Budget Discussion 2024–25 alongside co-panelists from academia, industry, and media</div>
+    </div>
+    <div class="speaking-card">
+      <div class="spk-icon">◆</div>
+      <div class="spk-venue">PES University · 2025</div>
+      <div class="spk-title">Invited speaker on "Geoeconomics in an Era of Retreating Globalisation" — global power shifts and India's strategic role</div>
+    </div>
+    <div class="speaking-card">
+      <div class="spk-icon">◆</div>
+      <div class="spk-venue">Sustainiti · MAHE Bangalore · 2024</div>
+      <div class="spk-title">Presented paper — "Balancing Growth and Green: Harnessing Carbon Tax for Sustainable Economic Development in India"</div>
+    </div>
+    <div class="speaking-card">
+      <div class="spk-icon">◆</div>
+      <div class="spk-venue">Monsoon School · CDS Trivandrum · 2024</div>
+      <div class="spk-title">Career guidance speaker for economics students — co-organised India's first Monsoon School in Economics</div>
+    </div>
+    <div class="speaking-card">
+      <div class="spk-icon">◆</div>
+      <div class="spk-venue">Lady Doak College · Madurai · 2026</div>
+      <div class="spk-title">Invited talk on "The Economics of Climate Change: Policy, Finance and Choices"</div>
+    </div>
+    <div class="speaking-card">
+      <div class="spk-icon">◆</div>
+      <div class="spk-venue">Lady Doak College · Madurai · 2026</div>
+      <div class="spk-title">Invited address to the Department of Economics on "Decoding Union Budget 2026–27"</div>
+    </div>
+    <div class="speaking-card">
+      <div class="spk-icon">◆</div>
+      <div class="spk-venue">FLAME University · 2026</div>
+      <div class="spk-title">Panelist — "Data Science in Economics Research, Policy Making, and the Corporate World"</div>
+    </div>
+    <div class="speaking-card">
+      <div class="spk-icon">◆</div>
+      <div class="spk-venue">St. Thomas College · Pala · 2023</div>
+      <div class="spk-title">Speaker on Career Opportunities in Economics for undergraduate students</div>
+    </div>
+
+    <div class="speaking-card">
+      <div class="spk-icon">◆</div>
+      <div class="spk-venue">Financial Times · New Delhi 2024</div>
+      <div class="spk-title">Co-authored report launched at FT Energy Transition Summit — earned senior leadership appreciation for research contributions</div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="section-eyebrow">Honours &amp; Awards</div>
+  <h2 class="section-title">Recognition</h2>
+  <div class="ach-grid">
+    <div class="ach-card">
+      <div class="ach-num">01</div>
+      <div class="ach-text"><strong>Top 6%</strong> in the UGC National Eligibility Test (NET) in Economics — a national-level examination.</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-num">02</div>
+      <div class="ach-text"><strong>38th rank</strong> in CUCET for the Economics Master's Entrance Examination.</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-num">03</div>
+      <div class="ach-text"><strong>First Runner-Up</strong> in the Union Budget Analysis competition organised by IIM Kashipur.</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-num">04</div>
+      <div class="ach-text"><strong>2nd position</strong> in the Best Economist Competition and Finalist in Eco-Matrix at IIT Madras DoMS.</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-num">05</div>
+      <div class="ach-text"><strong>Proficiency Prize in Economics</strong> for securing top marks in the final undergraduate year.</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-num">06</div>
+      <div class="ach-text"><strong>Top 10 Most Viewed</strong> writer in Microeconomics on Quora with over 8 lakh answer views.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-eyebrow">Get in touch</div>
+  <h2 class="section-title">Let's discuss economics, policy, and sustainability</h2>
+  <div class="contact-grid">
+    <div>
+      <p class="contact-desc">I'm open to research collaborations, speaking engagements, advisory mandates, and opportunities with multilateral institutions, think tanks, and policy-focused organisations. If you have an interesting problem, I'd love to hear about it.</p>
+      <div class="contact-links">
+        <a href="/cdn-cgi/l/email-protection#d6b7bab7b8a5b3b3bbb9b896b1bbb7bfbaf8b5b9bb" class="contact-link">
+          <div class="c-icon">✉</div>
+          <span class="__cf_email__" data-cfemail="dcbdb0bdb2afb9b9b1b3b29cbbb1bdb5b0f2bfb3b1">[email&#160;protected]</span>
+        </a>
+        <a href="https://www.linkedin.com/in/alan-seemon" target="_blank" class="contact-link">
+          <div class="c-icon">in</div>
+          linkedin.com/in/alan-seemon
+        </a>
+        <a href="#" class="contact-link">
+          <div class="c-icon">◎</div>
+          India
+        </a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="fg">
+          <label>Name</label>
+          <input type="text" placeholder="Your name">
+        </div>
+        <div class="fg">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="fg">
+        <label>Organisation</label>
+        <input type="text" placeholder="Your organisation (optional)">
+      </div>
+      <div class="fg">
+        <label>Message</label>
+        <textarea rows="5" placeholder="Tell me about your project or inquiry..."></textarea>
+      </div>
+      <a href="/cdn-cgi/l/email-protection#f1909d909f8294949c9e9fb1969c90989ddf929e9c" class="btn-primary" style="text-align:center;">Send message</a>
+    <    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2025 Alan Seemon. All rights reserved.</span>
+  <a href="mailto:alanseemon@gmail.com" style="font-size:12px; color:rgba(247,244,238,0.45); text-decoration:none; letter-spacing:0.04em;">alanseemon@gmail.com</a>
+  <span class="footer-logo">A.S.</span>
+</footer>
+
+</body>
+</html>
